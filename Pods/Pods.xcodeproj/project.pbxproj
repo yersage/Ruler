@@ -1,0 +1,626 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		271FE92091852CDFE622A3001D1FA03B /* Pods-Ruler-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B3461E5800194976B06D34ADA0D9E54 /* Pods-Ruler-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E06475DB3F8D32CF279A023E87BBB48 /* CRMark.m in Sources */ = {isa = PBXBuildFile; fileRef = 7388536B14D1D6A12CFFB923EAD4F196 /* CRMark.m */; };
+		326CA5109F502AD82130A2DE72A68057 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		40D4C21E15029F0626DDE2BC93DCB550 /* CRRulerControl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C5071E84E1E74BEF3D054132324F8094 /* CRRulerControl-dummy.m */; };
+		46824A4AD6777EE562137BA8FB20E76D /* CRMark.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A429A44956A032D6B89FB312852D1BA /* CRMark.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49909FFB8620ED262BC80F585960B3C4 /* Pods-Ruler-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E1833B40848926A82763576A15AF2367 /* Pods-Ruler-dummy.m */; };
+		4AA78E1429EBE5C432CCB167002F389B /* CRRulerControl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 599E601C01B86B5C6C953E8B153E40F7 /* CRRulerControl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5AFF3EF23B287A1FE757F8A4AAFBA5CC /* CRRulerLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1C86ABA44BE96C2BACAEF9C837B7A2 /* CRRulerLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DAFB84B61873B419DB374B3F163CB57 /* CRRulerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E0B4E75D47BF56EA97F489E7BF3D3D /* CRRulerControl.m */; };
+		7E77AA51A55F2EA4819A2F2932B26FEC /* CRRulerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FFDCB57C0608A2369858CAF4C1CFF2 /* CRRulerLayer.m */; };
+		C5DC66D61466F91784C35245567643C0 /* CRRulerControl.h in Headers */ = {isa = PBXBuildFile; fileRef = FB6B4AF6060782311486D21E91E2FE52 /* CRRulerControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DB6FD4FCC564E8779270C199BB6277E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C492F93125D7CEE2C276FD536AF4D90D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63BCED6951A01927062248FD037B2789;
+			remoteInfo = CRRulerControl;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01FFDCB57C0608A2369858CAF4C1CFF2 /* CRRulerLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CRRulerLayer.m; path = CRRulerControl/Classes/CRRulerLayer.m; sourceTree = "<group>"; };
+		25F93A29F49A5BAD8561FD4249E3EDB7 /* Pods-Ruler */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Ruler"; path = Pods_Ruler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31CB0E9A19E3033FC5EEE03CFEF0C528 /* CRRulerControl-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CRRulerControl-Info.plist"; sourceTree = "<group>"; };
+		32E493226FC3612F34EC44235D26BCC8 /* Pods-Ruler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Ruler.release.xcconfig"; sourceTree = "<group>"; };
+		489E167B3EC2E378B134042EC2FED804 /* Pods-Ruler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Ruler.debug.xcconfig"; sourceTree = "<group>"; };
+		4A429A44956A032D6B89FB312852D1BA /* CRMark.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CRMark.h; path = CRRulerControl/Classes/CRMark.h; sourceTree = "<group>"; };
+		4C563866E723340971702081F6A2C765 /* Pods-Ruler-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Ruler-acknowledgements.plist"; sourceTree = "<group>"; };
+		599E601C01B86B5C6C953E8B153E40F7 /* CRRulerControl-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CRRulerControl-umbrella.h"; sourceTree = "<group>"; };
+		608145007522D9D110A9C3155E462B31 /* Pods-Ruler.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Ruler.modulemap"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7388536B14D1D6A12CFFB923EAD4F196 /* CRMark.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CRMark.m; path = CRRulerControl/Classes/CRMark.m; sourceTree = "<group>"; };
+		834ACF9BA42FA588758ECF48C7D4B7FE /* Pods-Ruler-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Ruler-frameworks.sh"; sourceTree = "<group>"; };
+		8B3461E5800194976B06D34ADA0D9E54 /* Pods-Ruler-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Ruler-umbrella.h"; sourceTree = "<group>"; };
+		8C58B55011F334B22EA2096B2936ED50 /* Pods-Ruler-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Ruler-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9A1C86ABA44BE96C2BACAEF9C837B7A2 /* CRRulerLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CRRulerLayer.h; path = CRRulerControl/Classes/CRRulerLayer.h; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B2E0B4E75D47BF56EA97F489E7BF3D3D /* CRRulerControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CRRulerControl.m; path = CRRulerControl/Classes/CRRulerControl.m; sourceTree = "<group>"; };
+		BB84186F267E525B4C23461DD12E7C31 /* CRRulerControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CRRulerControl.modulemap; sourceTree = "<group>"; };
+		C5071E84E1E74BEF3D054132324F8094 /* CRRulerControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CRRulerControl-dummy.m"; sourceTree = "<group>"; };
+		CEC400A5A8F81B85C01A13330FBAFEA0 /* CRRulerControl */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CRRulerControl; path = CRRulerControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D03E2FB7D8A06BC3D4E287DF9D55FC1E /* CRRulerControl-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CRRulerControl-prefix.pch"; sourceTree = "<group>"; };
+		D5D4EF279F9383D4DD5AC37257F883DC /* CRRulerControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CRRulerControl.debug.xcconfig; sourceTree = "<group>"; };
+		DAEE4A93C04096DB0728A89D00D9C8C6 /* Pods-Ruler-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Ruler-Info.plist"; sourceTree = "<group>"; };
+		E1833B40848926A82763576A15AF2367 /* Pods-Ruler-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Ruler-dummy.m"; sourceTree = "<group>"; };
+		ECBEC91D051118D5E91B5EC46AC50B77 /* CRRulerControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CRRulerControl.release.xcconfig; sourceTree = "<group>"; };
+		FB6B4AF6060782311486D21E91E2FE52 /* CRRulerControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CRRulerControl.h; path = CRRulerControl/Classes/CRRulerControl.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CC5BAD351C117381B02B839B087CB8B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB6FD4FCC564E8779270C199BB6277E8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8173412D97D48F5DBAC4B17C37A8370 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				326CA5109F502AD82130A2DE72A68057 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		082E7D8815F2CDA63589657660769F3E /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				25A4E68E1073EF186DD01C5F940E4BCA /* Pods-Ruler */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		1D140F34DB0715FBFF41E0FFB5F2F881 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BB84186F267E525B4C23461DD12E7C31 /* CRRulerControl.modulemap */,
+				C5071E84E1E74BEF3D054132324F8094 /* CRRulerControl-dummy.m */,
+				31CB0E9A19E3033FC5EEE03CFEF0C528 /* CRRulerControl-Info.plist */,
+				D03E2FB7D8A06BC3D4E287DF9D55FC1E /* CRRulerControl-prefix.pch */,
+				599E601C01B86B5C6C953E8B153E40F7 /* CRRulerControl-umbrella.h */,
+				D5D4EF279F9383D4DD5AC37257F883DC /* CRRulerControl.debug.xcconfig */,
+				ECBEC91D051118D5E91B5EC46AC50B77 /* CRRulerControl.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/CRRulerControl";
+			sourceTree = "<group>";
+		};
+		25A4E68E1073EF186DD01C5F940E4BCA /* Pods-Ruler */ = {
+			isa = PBXGroup;
+			children = (
+				608145007522D9D110A9C3155E462B31 /* Pods-Ruler.modulemap */,
+				8C58B55011F334B22EA2096B2936ED50 /* Pods-Ruler-acknowledgements.markdown */,
+				4C563866E723340971702081F6A2C765 /* Pods-Ruler-acknowledgements.plist */,
+				E1833B40848926A82763576A15AF2367 /* Pods-Ruler-dummy.m */,
+				834ACF9BA42FA588758ECF48C7D4B7FE /* Pods-Ruler-frameworks.sh */,
+				DAEE4A93C04096DB0728A89D00D9C8C6 /* Pods-Ruler-Info.plist */,
+				8B3461E5800194976B06D34ADA0D9E54 /* Pods-Ruler-umbrella.h */,
+				489E167B3EC2E378B134042EC2FED804 /* Pods-Ruler.debug.xcconfig */,
+				32E493226FC3612F34EC44235D26BCC8 /* Pods-Ruler.release.xcconfig */,
+			);
+			name = "Pods-Ruler";
+			path = "Target Support Files/Pods-Ruler";
+			sourceTree = "<group>";
+		};
+		4C69F3B6351652FED429C4E69364016D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				53C0197AA44441DE77156851277089C3 /* CRRulerControl */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		53C0197AA44441DE77156851277089C3 /* CRRulerControl */ = {
+			isa = PBXGroup;
+			children = (
+				4A429A44956A032D6B89FB312852D1BA /* CRMark.h */,
+				7388536B14D1D6A12CFFB923EAD4F196 /* CRMark.m */,
+				FB6B4AF6060782311486D21E91E2FE52 /* CRRulerControl.h */,
+				B2E0B4E75D47BF56EA97F489E7BF3D3D /* CRRulerControl.m */,
+				9A1C86ABA44BE96C2BACAEF9C837B7A2 /* CRRulerLayer.h */,
+				01FFDCB57C0608A2369858CAF4C1CFF2 /* CRRulerLayer.m */,
+				1D140F34DB0715FBFF41E0FFB5F2F881 /* Support Files */,
+			);
+			name = CRRulerControl;
+			path = CRRulerControl;
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		9E29286567D86B8120E30285BC76DACE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEC400A5A8F81B85C01A13330FBAFEA0 /* CRRulerControl */,
+				25F93A29F49A5BAD8561FD4249E3EDB7 /* Pods-Ruler */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				4C69F3B6351652FED429C4E69364016D /* Pods */,
+				9E29286567D86B8120E30285BC76DACE /* Products */,
+				082E7D8815F2CDA63589657660769F3E /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6A876F6AA6A1E35E81074D0BBA6A6905 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				271FE92091852CDFE622A3001D1FA03B /* Pods-Ruler-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		970007FB3B1063C47B2D08D1549C1259 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46824A4AD6777EE562137BA8FB20E76D /* CRMark.h in Headers */,
+				C5DC66D61466F91784C35245567643C0 /* CRRulerControl.h in Headers */,
+				4AA78E1429EBE5C432CCB167002F389B /* CRRulerControl-umbrella.h in Headers */,
+				5AFF3EF23B287A1FE757F8A4AAFBA5CC /* CRRulerLayer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		63BCED6951A01927062248FD037B2789 /* CRRulerControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF2BE90B792CE1D01DF840AF34ABF5BF /* Build configuration list for PBXNativeTarget "CRRulerControl" */;
+			buildPhases = (
+				970007FB3B1063C47B2D08D1549C1259 /* Headers */,
+				3B7D33CE834F4BFEDCE79510FA6E5D60 /* Sources */,
+				E8173412D97D48F5DBAC4B17C37A8370 /* Frameworks */,
+				203128AC1AC40DC9E81C4CE643883CC0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CRRulerControl;
+			productName = CRRulerControl;
+			productReference = CEC400A5A8F81B85C01A13330FBAFEA0 /* CRRulerControl */;
+			productType = "com.apple.product-type.framework";
+		};
+		CBEAFBEDA40379C5A49301AB5FA2EB88 /* Pods-Ruler */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00394A8BE56D902DE731D5F5E1789BC5 /* Build configuration list for PBXNativeTarget "Pods-Ruler" */;
+			buildPhases = (
+				6A876F6AA6A1E35E81074D0BBA6A6905 /* Headers */,
+				10004BF2AB17BCF33FE5E4F437DFA5AB /* Sources */,
+				CC5BAD351C117381B02B839B087CB8B4 /* Frameworks */,
+				C39022DB3D200C7375DDCFFBFCE8DCA7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				920BE5FC86454C1DD1DD285ADD2902B6 /* PBXTargetDependency */,
+			);
+			name = "Pods-Ruler";
+			productName = Pods_Ruler;
+			productReference = 25F93A29F49A5BAD8561FD4249E3EDB7 /* Pods-Ruler */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 9E29286567D86B8120E30285BC76DACE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				63BCED6951A01927062248FD037B2789 /* CRRulerControl */,
+				CBEAFBEDA40379C5A49301AB5FA2EB88 /* Pods-Ruler */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		203128AC1AC40DC9E81C4CE643883CC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C39022DB3D200C7375DDCFFBFCE8DCA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		10004BF2AB17BCF33FE5E4F437DFA5AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49909FFB8620ED262BC80F585960B3C4 /* Pods-Ruler-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B7D33CE834F4BFEDCE79510FA6E5D60 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E06475DB3F8D32CF279A023E87BBB48 /* CRMark.m in Sources */,
+				7DAFB84B61873B419DB374B3F163CB57 /* CRRulerControl.m in Sources */,
+				40D4C21E15029F0626DDE2BC93DCB550 /* CRRulerControl-dummy.m in Sources */,
+				7E77AA51A55F2EA4819A2F2932B26FEC /* CRRulerLayer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		920BE5FC86454C1DD1DD285ADD2902B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CRRulerControl;
+			target = 63BCED6951A01927062248FD037B2789 /* CRRulerControl */;
+			targetProxy = C492F93125D7CEE2C276FD536AF4D90D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		09909ECBA13E8F70A928465E7F7A9A92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		0EAF78AC034EFB6EA679B0500ACFF94A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 489E167B3EC2E378B134042EC2FED804 /* Pods-Ruler.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Ruler/Pods-Ruler-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Ruler/Pods-Ruler.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2DE0D8898245310716431F92FA4989FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		7D989C33F01446DC49CE28561A827EC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECBEC91D051118D5E91B5EC46AC50B77 /* CRRulerControl.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CRRulerControl/CRRulerControl-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CRRulerControl/CRRulerControl-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/CRRulerControl/CRRulerControl.modulemap";
+				PRODUCT_MODULE_NAME = CRRulerControl;
+				PRODUCT_NAME = CRRulerControl;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8A8E01F3B6E23B3CC694D770D5616FAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32E493226FC3612F34EC44235D26BCC8 /* Pods-Ruler.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Ruler/Pods-Ruler-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Ruler/Pods-Ruler.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E85AD7C30BBDBE0F316D54507D31DB46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5D4EF279F9383D4DD5AC37257F883DC /* CRRulerControl.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CRRulerControl/CRRulerControl-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CRRulerControl/CRRulerControl-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/CRRulerControl/CRRulerControl.modulemap";
+				PRODUCT_MODULE_NAME = CRRulerControl;
+				PRODUCT_NAME = CRRulerControl;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00394A8BE56D902DE731D5F5E1789BC5 /* Build configuration list for PBXNativeTarget "Pods-Ruler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EAF78AC034EFB6EA679B0500ACFF94A /* Debug */,
+				8A8E01F3B6E23B3CC694D770D5616FAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09909ECBA13E8F70A928465E7F7A9A92 /* Debug */,
+				2DE0D8898245310716431F92FA4989FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF2BE90B792CE1D01DF840AF34ABF5BF /* Build configuration list for PBXNativeTarget "CRRulerControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E85AD7C30BBDBE0F316D54507D31DB46 /* Debug */,
+				7D989C33F01446DC49CE28561A827EC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
