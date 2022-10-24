@@ -123,7 +123,7 @@ class RulerViewController: UIViewController {
             ruler.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
             ruler.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
         ])
-        
+
         rulerWidthConstraint = ruler.widthAnchor.constraint(equalToConstant: ruler.totalLength)
 
         NSLayoutConstraint.activate([
@@ -137,18 +137,20 @@ extension RulerViewController {
     @objc func increaseButtonPressed() {
         ruler.increaseDistance()
         rulerWidthConstraint.constant = ruler.totalLength
-        ruler.layoutIfNeeded()
+        ruler.setNeedsDisplay()
+        // change currentValueLabel's
     }
     
     @objc func decreaseButtonPressed() {
         ruler.decreaseDistance()
+        rulerWidthConstraint.constant = ruler.totalLength
         ruler.setNeedsDisplay()
     }
 }
 
 extension RulerViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let currentValue = scrollView.contentOffset.x / 50
+        let currentValue = scrollView.contentOffset.x / ruler.getDistance()
         currentValueLabel.text = String(format: "%.2f", currentValue)
     }
 }

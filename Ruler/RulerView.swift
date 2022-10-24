@@ -27,9 +27,9 @@ class RulerView: UIView {
     
     private var middleDigit = 0.0
     
-    lazy var totalLength: CGFloat = {
+    var totalLength: CGFloat {
         return (self.distance * CGFloat(countOfBigScales - 1)) + leftMargin + rightMargin
-    }()
+    }
     
     // MARK: - Init
     init(leftMargin: CGFloat, rightMargin: CGFloat) {
@@ -72,6 +72,13 @@ extension RulerView {
     
     func decreaseDistance() {
         self.distance -= 5.0
+    }
+}
+
+// MARK: - Getter funcs
+extension RulerView {
+    func getDistance() -> CGFloat {
+        return distance
     }
 }
 
