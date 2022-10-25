@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2BA84A26131CCA4B6AF71B52 /* Pods_Ruler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62AAA1E431B50D216209BD38 /* Pods_Ruler.framework */; };
 		FC7B416F2904161300831897 /* RulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7B416E2904161300831897 /* RulerView.swift */; };
+		FC7B4173290645BD00831897 /* ScaleMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7B4172290645BD00831897 /* ScaleMode.swift */; };
+		FC7B41752906468A00831897 /* ScaleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7B41742906468A00831897 /* ScaleModel.swift */; };
 		FC9035EC2903F8000037178A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9035EB2903F8000037178A /* AppDelegate.swift */; };
 		FC9035EE2903F8000037178A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9035ED2903F8000037178A /* SceneDelegate.swift */; };
 		FC9035F02903F8000037178A /* RulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9035EF2903F8000037178A /* RulerViewController.swift */; };
@@ -22,6 +24,8 @@
 		62AAA1E431B50D216209BD38 /* Pods_Ruler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ruler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6979B7B17E75403824E30F8F /* Pods-Ruler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ruler.debug.xcconfig"; path = "Target Support Files/Pods-Ruler/Pods-Ruler.debug.xcconfig"; sourceTree = "<group>"; };
 		FC7B416E2904161300831897 /* RulerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulerView.swift; sourceTree = "<group>"; };
+		FC7B4172290645BD00831897 /* ScaleMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleMode.swift; sourceTree = "<group>"; };
+		FC7B41742906468A00831897 /* ScaleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleModel.swift; sourceTree = "<group>"; };
 		FC9035E82903F8000037178A /* Ruler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ruler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9035EB2903F8000037178A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC9035ED2903F8000037178A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +54,6 @@
 				6979B7B17E75403824E30F8F /* Pods-Ruler.debug.xcconfig */,
 				46CCEA97822D8F60D3B7AFAE /* Pods-Ruler.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -91,6 +94,8 @@
 				FC9035F62903F8020037178A /* LaunchScreen.storyboard */,
 				FC9035F92903F8020037178A /* Info.plist */,
 				FC7B416E2904161300831897 /* RulerView.swift */,
+				FC7B4172290645BD00831897 /* ScaleMode.swift */,
+				FC7B41742906468A00831897 /* ScaleModel.swift */,
 			);
 			path = Ruler;
 			sourceTree = "<group>";
@@ -106,7 +111,6 @@
 				FC9035E42903F8000037178A /* Sources */,
 				FC9035E52903F8000037178A /* Frameworks */,
 				FC9035E62903F8000037178A /* Resources */,
-				F043EED0F1FA0B62BBC6710B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -186,23 +190,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F043EED0F1FA0B62BBC6710B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Ruler/Pods-Ruler-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Ruler/Pods-Ruler-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ruler/Pods-Ruler-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -212,8 +199,10 @@
 			files = (
 				FC9035F02903F8000037178A /* RulerViewController.swift in Sources */,
 				FC7B416F2904161300831897 /* RulerView.swift in Sources */,
+				FC7B41752906468A00831897 /* ScaleModel.swift in Sources */,
 				FC9035EC2903F8000037178A /* AppDelegate.swift in Sources */,
 				FC9035EE2903F8000037178A /* SceneDelegate.swift in Sources */,
+				FC7B4173290645BD00831897 /* ScaleMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

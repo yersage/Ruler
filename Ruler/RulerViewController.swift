@@ -59,6 +59,8 @@ class RulerViewController: UIViewController {
         return ruler
     }()
     
+    private var currentValue: CGFloat = 0.0
+    
     private var rulerWidthConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
@@ -78,6 +80,8 @@ class RulerViewController: UIViewController {
         
         view.addSubview(scrollView)
         scrollView.addSubview(ruler)
+        
+        view.bringSubviewToFront(center)
                 
         layoutSubviews()
     }
@@ -105,9 +109,9 @@ class RulerViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             center.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            center.bottomAnchor.constraint(equalTo: scrollView.topAnchor, constant: -10),
-            center.heightAnchor.constraint(equalToConstant: 20),
-            center.widthAnchor.constraint(equalToConstant: 2),
+            center.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: -20),
+            center.heightAnchor.constraint(equalToConstant: 30),
+            center.widthAnchor.constraint(equalToConstant: 1),
         ])
         
         NSLayoutConstraint.activate([
@@ -138,20 +142,27 @@ extension RulerViewController {
         ruler.increaseDistance()
         rulerWidthConstraint.constant = ruler.totalLength
         ruler.setNeedsDisplay()
-        // change currentValueLabel's
+        let pointToScroll = CGPoint(x: (currentValue*ruler.getDistance()),
+                                    y: 0)
+        scrollView.setContentOffset(pointToScroll, animated: false)
     }
     
     @objc func decreaseButtonPressed() {
         ruler.decreaseDistance()
         rulerWidthConstraint.constant = ruler.totalLength
         ruler.setNeedsDisplay()
+        let pointToScroll = CGPoint(x: (currentValue*ruler.getDistance()),
+                                    y: 0)
+        scrollView.setContentOffset(pointToScroll, animated: false)
+        print((60.0*1440)/ruler.totalLength)
     }
 }
 
 extension RulerViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let currentValue = scrollView.contentOffset.x / ruler.getDistance()
-        currentValueLabel.text = String(format: "%.2f", currentValue)
+        currentValue = scrollView.contentOffset.x / ruler.getDistance()
+        let currentMinutes = Int(Float(currentValue) * 60)
+        currentValueLabel.text = String(format: "%02d:%02d:%02d", currentMinutes / 3600, (currentMinutes / 60) % 60, currentMinutes % 60)
     }
 }
 
