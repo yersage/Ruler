@@ -1,142 +1,111 @@
 //
-//  RulerVieqw.swift
+//  Ruler.swift
 //  Ruler
 //
-//  Created by Yersage on 22.10.2022.
+//  Created by Yersage on 25.10.2022.
 //
 
 import UIKit
 
-class RulerView: UIView {
+final class RulerView: UIView {
+    // MARK: - Layout constants
+    private let leftMargin = UIScreen.main.bounds.width / 2
+    private let rightMargin = UIScreen.main.bounds.width / 2
     
-    // MARK: - Properties
-    private var distance: CGFloat = 60.0
+    private let lengthOfBigScale: CGFloat = 25.0
+    private let lengthOfSmallScale: CGFloat = 10.0
     
-    private var countOfMinutes: Int = 1440
-    private var countOfSmallScales: Int = 4
+    private let timeStampWidth: CGFloat = 33.0
+    private let timeStampHeight: CGFloat = 14.0
     
-    private var lengthOfBigScale: CGFloat = 25.0
-    private var lengthOfSmallScale: CGFloat = 10.0
+    // MARK: - Logic constants
+    private let smallestStep = 1
+    private let biggestStep = 480
     
-    private var leftMargin: CGFloat
-    private var rightMargin: CGFloat
+    private let numberOfMinutes: Double = 1440
     
-    private var textWidth: CGFloat = 32.0
-    private var textHeight: CGFloat = 20.0
+    private let distance: CGFloat = 60.0
     
-    private var step: Int = 1
-    
-    private var currentMinute = 0
-    private var currentHour = 0
-    
-    var totalLength: CGFloat {
-        return (self.distance * CGFloat(countOfMinutes) / CGFloat(step)) + leftMargin + rightMargin
+    // MARK: - Variables
+    var distanceBetweenScales: CGFloat {
+        return currentScaleLength / numberOfMinutes
     }
     
-    // MARK: - Init
-    init(leftMargin: CGFloat, rightMargin: CGFloat) {
-        self.leftMargin = leftMargin
-        self.rightMargin = rightMargin
-        super.init(frame: .zero)
+    private var step: Double {
+        get {
+            return (distance * numberOfMinutes) / currentScaleLength
+        }
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    private var timeStampsRange: Int {
+//        return Int(step)
+        if step > 288 {
+            return 360
+        } else if step > 196 {
+            return 240
+        } else if step > 144 {
+            return 180
+        } else if step > 96 {
+            return 120
+        } else if step > 48 {
+            return 60
+        } else if step > 24 {
+            return 30
+        } else if step > 15 {
+            return 20
+        } else if step > 5 {
+            return 10
+        } else if step > 4 {
+            return 5
+        } else if step > 2 {
+            return 4
+        } else if step > 1 {
+            return 2
+        } else {
+            return 1
+        }
     }
-        
+    
+    private var numberOfScalesBetweenTimeStamps = 4
+    
+    var currentScaleLength: Double = 1440.0 * 60.0
+}
+
+extension RulerView {
     override func draw(_ rect: CGRect) {
         layer.sublayers = nil
-        currentMinute = 0
-        currentHour = 0
         
         var currentX: CGFloat = leftMargin
         
-        for i in 0 ..< countOfMinutes {
-            if step < 5 {
-                drawScale(x: currentX,
-                          length: lengthOfBigScale,
-                          lineWidth: 1.0)
-            } else {
-                if i % (step / 5) == 0 {
-                    let length = i % step == 0 ? lengthOfBigScale : lengthOfBigScale / 2
-                    drawScale(x: currentX,
-                              length: length,
-                              lineWidth: 1.0)
-                }
+        for i in 0 ..< Int(numberOfMinutes) {
+            var rangeBetweenScales = timeStampsRange / 5
+            rangeBetweenScales = timeStampsRange < 5 ? timeStampsRange : rangeBetweenScales
+            
+            if timeStampsRange < 5 {
+                drawScale(x: currentX, length: lengthOfBigScale)
+                drawSmallScales(x: currentX, distanceBetweenSmallScales: distanceBetweenScales / 5, length: lengthOfBigScale / 2)
+            } else if i % timeStampsRange == 0 {
+                drawScale(x: currentX, length: lengthOfBigScale)
+            } else if (i % timeStampsRange) % rangeBetweenScales == 0 {
+                drawScale(x: currentX, length: lengthOfBigScale / 2)
             }
             
-            if i % step == 0 {
-                drawDigit(hour: i / 60, minute: i % 60, x: currentX, lineWidth: 1.0)
+            if i % timeStampsRange == 0 {
+                drawTimeStamp(minutes: i, x: currentX)
             }
             
-            if step < 4 {
-                drawSmallScales(x: currentX, length: lengthOfSmallScale, lineWidth: 1.0)
-            }
-            
-            let smallScaleLength = step < 4 ? (lengthOfBigScale / 5) * 2 : lengthOfBigScale
-            if step < 4 {
-                drawSmallScales(x: currentX, length: smallScaleLength, lineWidth: 1.0, countOfScales: 4)
-            }
-            
-            currentX += distance / CGFloat(step)
+            currentX += distanceBetweenScales
         }
         
-        drawScale(x: currentX,
-                  length: CGFloat(lengthOfBigScale), lineWidth: 1.0)
-        drawDigit(hour: countOfMinutes / 60, minute: countOfMinutes % 60, x: currentX, lineWidth: 1.0)
+//        drawScale(x: currentX,
+        drawScale(x: currentScaleLength + UIScreen.main.bounds.width / 2,
+                  length: lengthOfBigScale)
+        drawTimeStamp(minutes: 1440, x: currentX)
     }
 }
 
-// MARK: - Setter funcs
 extension RulerView {
-    func increaseDistance() {
-        if step == 1 { return }
-        
-        if step >= 120 {
-            step -= 60
-        } else if step == 30 {
-            step = 20
-            return
-        } else if step == 5 {
-            step -= 1
-            return
-        } else if step == 1 {
-            return
-        } else {
-            step /= 2
-        }
-    }
-    
-    func decreaseDistance() {
-        
-        if step == 4 {
-            step += 1
-        } else if step == 20 {
-            step += 10
-        } else if step == 360 {
-            return
-        } else if step >= 60 {
-            step += 60
-        } else {
-            step *= 2
-        }
-    }
-}
-
-// MARK: - Getter funcs
-extension RulerView {
-    func getDistance() -> CGFloat {
-        return distance / CGFloat(step)
-    }
-    
-    func getLeftMargin() -> CGFloat {
-        return leftMargin
-    }
-}
-
-// MARK: - Draw funcs
-extension RulerView {
-    private func drawScale(x: CGFloat, length: CGFloat, lineWidth: CGFloat) {
+    private func drawScale(x: CGFloat, length: CGFloat, lineWidth: CGFloat = 1.0) {
         let linePath = UIBezierPath()
         
         linePath.move(to: CGPoint(x: x, y: 0))
@@ -151,58 +120,25 @@ extension RulerView {
         layer.addSublayer(shapeLayer)
     }
     
-    private func drawDigit(hour: Int, minute: Int, x: CGFloat, lineWidth: CGFloat) {
-        let hourString = hour < 10 ? String(format: "%02d", hour) : "\(hour)"
-        let minuteString = minute < 10 ? String(format: "%02d", minute) : "\(minute)"
+    private func drawTimeStamp(minutes: Int, x: CGFloat) {
+        let hourString = (minutes / 60) < 10 ? String(format: "%02d", (minutes / 60)) : "\(minutes / 60)"
+        let minuteString = (minutes % 60) < 10 ? String(format: "%02d", minutes % 60) : "\(minutes % 60)"
         let scaleDigit = "\(hourString):\(minuteString)"
-        scaleDigit.draw(with: CGRect(x: x - (textWidth/CGFloat(2)),
+        scaleDigit.draw(with: CGRect(x: x - (timeStampWidth/CGFloat(2)),
                                      y: lengthOfBigScale + 5,
-                                     width: textWidth,
-                                     height: textHeight),
+                                     width: timeStampWidth,
+                                     height: timeStampHeight),
                         options: .usesLineFragmentOrigin,
                         attributes: nil,
                         context: nil)
     }
     
-    private func drawSmallScales(x: CGFloat, length: CGFloat, lineWidth: CGFloat) {
+    private func drawSmallScales(x: CGFloat, distanceBetweenSmallScales: CGFloat, length: CGFloat, lineWidth: CGFloat = 1.0) {
         var currentX = x
         
-        for _ in 0 ..< countOfSmallScales {
-            currentX += distance / CGFloat(countOfSmallScales + 1)
-            drawScale(x: currentX, length: length, lineWidth: lineWidth)
-        }
-    }
-    
-    private func drawSmallScales(x: CGFloat, length: CGFloat, lineWidth: CGFloat, countOfScales: Int) {
-        var currentX = x
-        
-        for _ in 0 ..< countOfScales {
-            currentX += (distance / CGFloat(step)) / CGFloat(countOfScales + 1)
+        for _ in 0 ..< 4 {
+            currentX += distanceBetweenSmallScales
             drawScale(x: currentX, length: length, lineWidth: lineWidth)
         }
     }
 }
-
-
-
-//private func draw(for model: ScaleModel) {
-//    var currentX: CGFloat = leftMargin
-//
-//    for i in 0 ..< countOfBigScales - 1 {
-//        drawScale(x: currentX,
-//                  length: lengthOfBigScale,
-//                  lineWidth: 1.0)
-//
-//        if i % step == 0 {
-//            drawDigit(i, x: currentX, lineWidth: 1.0)
-//        }
-//
-//        let smallScaleLength = step < 5 ? (model.scaleLength / 5) * 2 : model.scaleLength
-//        drawSmallScales(x: currentX, length: smallScaleLength, lineWidth: 1.0, countOfScales: 4)
-//
-//        currentX += distance / CGFloat(step)
-//    }
-//
-//    drawScale(x: currentX, length: CGFloat(lengthOfBigScale), lineWidth: 1.0)
-//    drawDigit(countOfBigScales - 1, x: currentX, lineWidth: 1.0)
-//}

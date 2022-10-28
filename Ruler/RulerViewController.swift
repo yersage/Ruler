@@ -29,7 +29,7 @@ class RulerViewController: UIViewController {
     
     private lazy var currentValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "0.00"
+        label.text = "00:00"
         label.font = UIFont.systemFont(ofSize: 25)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -51,15 +51,15 @@ class RulerViewController: UIViewController {
         return scrollView
     }()
     
-    private lazy var ruler: RulerView = {
-        let ruler = RulerView(leftMargin: UIScreen.main.bounds.width / 2,
-                                  rightMargin: UIScreen.main.bounds.width / 2)
+    private lazy var rulerView: RulerView = {
+        let ruler = RulerView()
         ruler.backgroundColor = .white
+        ruler.isUserInteractionEnabled = true
         ruler.translatesAutoresizingMaskIntoConstraints = false
         return ruler
     }()
     
-    private var currentValue: CGFloat = 0.0
+    private var currentMinutes: CGFloat = 0.0
     
     private var rulerWidthConstraint: NSLayoutConstraint!
 
@@ -79,7 +79,10 @@ class RulerViewController: UIViewController {
         view.addSubview(center)
         
         view.addSubview(scrollView)
-        scrollView.addSubview(ruler)
+        scrollView.addSubview(rulerView)
+        
+        scrollView.addGestureRecognizer(UIPinchGestureRecognizer(target: self,
+                                                            action: #selector(didPinch(_:))))
         
         view.bringSubviewToFront(center)
                 
@@ -87,7 +90,6 @@ class RulerViewController: UIViewController {
     }
     
     private func layoutSubviews() {
-        
         NSLayoutConstraint.activate([
             increaseButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             increaseButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -122,16 +124,16 @@ class RulerViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            ruler.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            ruler.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            ruler.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
-            ruler.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+            rulerView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            rulerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            rulerView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+            rulerView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
         ])
 
-        rulerWidthConstraint = ruler.widthAnchor.constraint(equalToConstant: ruler.totalLength)
+        rulerWidthConstraint = rulerView.widthAnchor.constraint(equalToConstant: rulerView.currentScaleLength + UIScreen.main.bounds.width)
 
         NSLayoutConstraint.activate([
-            ruler.heightAnchor.constraint(equalToConstant: 100),
+            rulerView.heightAnchor.constraint(equalToConstant: 100),
             rulerWidthConstraint
         ])
     }
@@ -139,29 +141,47 @@ class RulerViewController: UIViewController {
 
 extension RulerViewController {
     @objc func increaseButtonPressed() {
-        ruler.increaseDistance()
-        rulerWidthConstraint.constant = ruler.totalLength
-        ruler.setNeedsDisplay()
-        let pointToScroll = CGPoint(x: (currentValue*ruler.getDistance()),
-                                    y: 0)
-        scrollView.setContentOffset(pointToScroll, animated: false)
+//        rulerView.increaseDistance()
+//        rulerWidthConstraint.constant = rulerView.totalLength
+//        rulerView.setNeedsDisplay()
+//        let pointToScroll = CGPoint(x: (currentValue*rulerView.getDistance()),
+//                                    y: 0)
+//        scrollView.setContentOffset(pointToScroll, animated: false)
     }
     
     @objc func decreaseButtonPressed() {
-        ruler.decreaseDistance()
-        rulerWidthConstraint.constant = ruler.totalLength
-        ruler.setNeedsDisplay()
-        let pointToScroll = CGPoint(x: (currentValue*ruler.getDistance()),
-                                    y: 0)
-        scrollView.setContentOffset(pointToScroll, animated: false)
-        print((60.0*1440)/ruler.totalLength)
+//        rulerView.decreaseDistance()
+//        rulerWidthConstraint.constant = rulerView.totalLength
+//        rulerView.setNeedsDisplay()
+//        let pointToScroll = CGPoint(x: (currentValue*rulerView.getDistance()),
+//                                    y: 0)
+//        scrollView.setContentOffset(pointToScroll, animated: false)
+//        print((60.0*1440)/ruler.totalLength)
+    }
+    
+    @objc func didPinch(_ gestureRecognizer : UIPinchGestureRecognizer) {
+        
+        guard gestureRecognizer.view != nil else { return }
+        
+        if gestureRecognizer.state == .changed {
+            
+            rulerView.currentScaleLength *= gestureRecognizer.scale
+            
+            rulerWidthConstraint.constant = rulerView.currentScaleLength + UIScreen.main.bounds.width
+            gestureRecognizer.scale = 1.0
+            rulerView.setNeedsDisplay()
+            
+            let pointToScroll = CGPoint(x: (currentMinutes*rulerView.distanceBetweenScales),
+                                        y: 0)
+            scrollView.setContentOffset(pointToScroll, animated: false)
+        }
     }
 }
 
 extension RulerViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        currentValue = scrollView.contentOffset.x / ruler.getDistance()
-        let currentMinutes = Int(Float(currentValue) * 60)
+        currentMinutes = scrollView.contentOffset.x / rulerView.distanceBetweenScales
+        let currentMinutes = Int(Float(currentMinutes) * 60)
         currentValueLabel.text = String(format: "%02d:%02d:%02d", currentMinutes / 3600, (currentMinutes / 60) % 60, currentMinutes % 60)
     }
 }

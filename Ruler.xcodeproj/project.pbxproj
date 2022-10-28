@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2BA84A26131CCA4B6AF71B52 /* Pods_Ruler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62AAA1E431B50D216209BD38 /* Pods_Ruler.framework */; };
-		FC7B416F2904161300831897 /* RulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7B416E2904161300831897 /* RulerView.swift */; };
+		FC7AD4DF29078F9E00F712DE /* RulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7AD4DE29078F9E00F712DE /* RulerView.swift */; };
 		FC7B4173290645BD00831897 /* ScaleMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7B4172290645BD00831897 /* ScaleMode.swift */; };
 		FC7B41752906468A00831897 /* ScaleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7B41742906468A00831897 /* ScaleModel.swift */; };
 		FC9035EC2903F8000037178A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9035EB2903F8000037178A /* AppDelegate.swift */; };
@@ -23,7 +23,7 @@
 		46CCEA97822D8F60D3B7AFAE /* Pods-Ruler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ruler.release.xcconfig"; path = "Target Support Files/Pods-Ruler/Pods-Ruler.release.xcconfig"; sourceTree = "<group>"; };
 		62AAA1E431B50D216209BD38 /* Pods_Ruler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ruler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6979B7B17E75403824E30F8F /* Pods-Ruler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ruler.debug.xcconfig"; path = "Target Support Files/Pods-Ruler/Pods-Ruler.debug.xcconfig"; sourceTree = "<group>"; };
-		FC7B416E2904161300831897 /* RulerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulerView.swift; sourceTree = "<group>"; };
+		FC7AD4DE29078F9E00F712DE /* RulerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulerView.swift; sourceTree = "<group>"; };
 		FC7B4172290645BD00831897 /* ScaleMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleMode.swift; sourceTree = "<group>"; };
 		FC7B41742906468A00831897 /* ScaleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleModel.swift; sourceTree = "<group>"; };
 		FC9035E82903F8000037178A /* Ruler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ruler.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,9 +93,9 @@
 				FC9035F42903F8020037178A /* Assets.xcassets */,
 				FC9035F62903F8020037178A /* LaunchScreen.storyboard */,
 				FC9035F92903F8020037178A /* Info.plist */,
-				FC7B416E2904161300831897 /* RulerView.swift */,
 				FC7B4172290645BD00831897 /* ScaleMode.swift */,
 				FC7B41742906468A00831897 /* ScaleModel.swift */,
+				FC7AD4DE29078F9E00F712DE /* RulerView.swift */,
 			);
 			path = Ruler;
 			sourceTree = "<group>";
@@ -197,8 +197,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC7AD4DF29078F9E00F712DE /* RulerView.swift in Sources */,
 				FC9035F02903F8000037178A /* RulerViewController.swift in Sources */,
-				FC7B416F2904161300831897 /* RulerView.swift in Sources */,
 				FC7B41752906468A00831897 /* ScaleModel.swift in Sources */,
 				FC9035EC2903F8000037178A /* AppDelegate.swift in Sources */,
 				FC9035EE2903F8000037178A /* SceneDelegate.swift in Sources */,
