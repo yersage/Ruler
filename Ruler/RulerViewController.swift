@@ -86,10 +86,10 @@ class RulerViewController: UIViewController {
         
         view.bringSubviewToFront(center)
                 
-        layoutSubviews()
+        setupConstraints()
     }
     
-    private func layoutSubviews() {
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
             increaseButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             increaseButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),

@@ -12,6 +12,8 @@ final class RulerView: UIView {
     private let leftMargin = UIScreen.main.bounds.width / 2
     private let rightMargin = UIScreen.main.bounds.width / 2
     
+    private let recordsRangeHeight: CGFloat = 5.0
+    
     private let lengthOfBigScale: CGFloat = 25.0
     private let lengthOfSmallScale: CGFloat = 10.0
     
@@ -26,19 +28,18 @@ final class RulerView: UIView {
     
     private let distance: CGFloat = 60.0
     
+    var recordRanges = [RecordRangeModel(startTimeInSeconds: 0, endTimeInSeconds: 3600)]
+    
     // MARK: - Variables
     var distanceBetweenScales: CGFloat {
         return currentScaleLength / numberOfMinutes
     }
     
     private var step: Double {
-        get {
-            return (distance * numberOfMinutes) / currentScaleLength
-        }
+        return (distance * numberOfMinutes) / currentScaleLength
     }
     
-    private var timeStampsRange: Int {
-//        return Int(step)
+    private var rangeBetweenTimestamps: Int {
         if step > 288 {
             return 360
         } else if step > 196 {
@@ -69,6 +70,22 @@ final class RulerView: UIView {
     private var numberOfScalesBetweenTimeStamps = 4
     
     var currentScaleLength: Double = 1440.0 * 60.0
+    
+    var currentTime: Int {
+        let currentDateTime = Date()
+        let userCalendar = Calendar.current
+
+        let requestedComponents: Set<Calendar.Component> = [
+            .hour,
+            .minute,
+            .second
+        ]
+
+        let dateTimeComponents = userCalendar.dateComponents(requestedComponents,
+                                                             from: currentDateTime)
+        
+        return (dateTimeComponents.hour! * 3600) + (dateTimeComponents.minute! * 60) + dateTimeComponents.second!
+    }
 }
 
 extension RulerView {
@@ -77,27 +94,32 @@ extension RulerView {
         
         var currentX: CGFloat = leftMargin
         
+        drawTimeRange(recordRange: RecordRangeModel(startTimeInSeconds: 0,
+                                                    endTimeInSeconds: currentTime),
+                      color: UIColor.systemRed.cgColor)
+        drawTimeRanges(recordRanges: recordRanges,
+                       color: UIColor.systemBlue.cgColor)
+        
         for i in 0 ..< Int(numberOfMinutes) {
-            var rangeBetweenScales = timeStampsRange / 5
-            rangeBetweenScales = timeStampsRange < 5 ? timeStampsRange : rangeBetweenScales
+            var rangeBetweenScales = rangeBetweenTimestamps / 5
+            rangeBetweenScales = rangeBetweenTimestamps < 5 ? rangeBetweenTimestamps : rangeBetweenScales
             
-            if timeStampsRange < 5 {
+            if rangeBetweenTimestamps < 5 {
                 drawScale(x: currentX, length: lengthOfBigScale)
                 drawSmallScales(x: currentX, distanceBetweenSmallScales: distanceBetweenScales / 5, length: lengthOfBigScale / 2)
-            } else if i % timeStampsRange == 0 {
+            } else if i % rangeBetweenTimestamps == 0 {
                 drawScale(x: currentX, length: lengthOfBigScale)
-            } else if (i % timeStampsRange) % rangeBetweenScales == 0 {
+            } else if (i % rangeBetweenTimestamps) % rangeBetweenScales == 0 {
                 drawScale(x: currentX, length: lengthOfBigScale / 2)
             }
             
-            if i % timeStampsRange == 0 {
+            if i % rangeBetweenTimestamps == 0 {
                 drawTimeStamp(minutes: i, x: currentX)
             }
             
             currentX += distanceBetweenScales
         }
         
-//        drawScale(x: currentX,
         drawScale(x: currentScaleLength + UIScreen.main.bounds.width / 2,
                   length: lengthOfBigScale)
         drawTimeStamp(minutes: 1440, x: currentX)
@@ -105,11 +127,46 @@ extension RulerView {
 }
 
 extension RulerView {
-    private func drawScale(x: CGFloat, length: CGFloat, lineWidth: CGFloat = 1.0) {
+    private func drawTimeRanges(recordRanges: [RecordRangeModel], color: CGColor) {
+        for recordRange in recordRanges {
+            drawTimeRange(recordRange: recordRange, color: color)
+        }
+    }
+    
+    private func drawTimeRange(recordRange: RecordRangeModel, color: CGColor) {
+        let coordinates = getCoordinatesBySeconds(recordRange: recordRange)
+        
         let linePath = UIBezierPath()
         
-        linePath.move(to: CGPoint(x: x, y: 0))
-        linePath.addLine(to: CGPoint(x: x, y: length))
+        linePath.move(to: CGPoint(x: coordinates.start + leftMargin, y: 0))
+        linePath.addLine(to: CGPoint(x: coordinates.end + leftMargin, y: 0))
+        linePath.lineWidth = recordsRangeHeight
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = linePath.cgPath
+        shapeLayer.strokeColor = color
+        shapeLayer.lineWidth = recordsRangeHeight
+        
+        layer.addSublayer(shapeLayer)
+    }
+    
+    private func getCoordinatesBySeconds(recordRange: RecordRangeModel) -> (start: CGFloat, end: CGFloat) {
+        let startTimeInMinutes: Double = Double(recordRange.startTimeInSeconds) / 60.0
+        let endTimeInMinutes: Double = Double(recordRange.endTimeInSeconds) / 60.0
+        
+        let startPoint: CGFloat = (currentScaleLength * startTimeInMinutes) / numberOfMinutes
+        let endPoint: CGFloat = (currentScaleLength * endTimeInMinutes) / numberOfMinutes
+        
+        return (start: startPoint, end: endPoint)
+    }
+}
+
+extension RulerView {
+    private func drawScale(x: CGFloat, y: CGFloat = 5.0, length: CGFloat, lineWidth: CGFloat = 1.0) {
+        let linePath = UIBezierPath()
+        
+        linePath.move(to: CGPoint(x: x, y: y))
+        linePath.addLine(to: CGPoint(x: x, y: y + length))
         linePath.lineWidth = lineWidth
         
         let shapeLayer = CAShapeLayer()
@@ -120,12 +177,12 @@ extension RulerView {
         layer.addSublayer(shapeLayer)
     }
     
-    private func drawTimeStamp(minutes: Int, x: CGFloat) {
+    private func drawTimeStamp(minutes: Int, x: CGFloat, y: CGFloat = 5.0) {
         let hourString = (minutes / 60) < 10 ? String(format: "%02d", (minutes / 60)) : "\(minutes / 60)"
         let minuteString = (minutes % 60) < 10 ? String(format: "%02d", minutes % 60) : "\(minutes % 60)"
         let scaleDigit = "\(hourString):\(minuteString)"
         scaleDigit.draw(with: CGRect(x: x - (timeStampWidth/CGFloat(2)),
-                                     y: lengthOfBigScale + 5,
+                                     y: y + lengthOfBigScale + 5,
                                      width: timeStampWidth,
                                      height: timeStampHeight),
                         options: .usesLineFragmentOrigin,
@@ -133,12 +190,12 @@ extension RulerView {
                         context: nil)
     }
     
-    private func drawSmallScales(x: CGFloat, distanceBetweenSmallScales: CGFloat, length: CGFloat, lineWidth: CGFloat = 1.0) {
+    private func drawSmallScales(x: CGFloat, y: CGFloat = 5.0, distanceBetweenSmallScales: CGFloat, length: CGFloat, lineWidth: CGFloat = 1.0) {
         var currentX = x
         
         for _ in 0 ..< 4 {
             currentX += distanceBetweenSmallScales
-            drawScale(x: currentX, length: length, lineWidth: lineWidth)
+            drawScale(x: currentX, y: y, length: length, lineWidth: lineWidth)
         }
     }
 }
